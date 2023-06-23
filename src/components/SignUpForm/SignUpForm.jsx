@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -28,6 +29,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Baby step!
       this.props.setUser(user);
+      useNavigate()('/notes')
     } catch {
       // An error occurred
       // Probably due to a duplicate email
